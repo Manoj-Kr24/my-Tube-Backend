@@ -9,7 +9,7 @@ cloudinary.config({
 })
 
 
-const uploadOnCloudunary = async (localFilePath) =>{
+const uploadOnCloudinary = async (localFilePath) =>{
     try {
         if(! localFilePath) return null;
         //upload file on cloudinary
@@ -18,8 +18,8 @@ const uploadOnCloudunary = async (localFilePath) =>{
         })
 
         //file has been uploaded successfully
-        console.log("File has been uploaded on cloudinary", response)
-        console.log(response.url)
+        console.log("File has been uploaded on cloudinary :: Response ", response)
+        console.log("Response url",response.url)
 
         return response;
 
@@ -34,14 +34,7 @@ const uploadOnCloudunary = async (localFilePath) =>{
 }
 
 
-const uploadResult = await cloudinary.uploader
-.upload(
-    'https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg', {
-        public_id: 'shoes',
-    }
-)
-.catch((error) => {
-    console.log(error);
-});
 
-console.log(uploadResult);
+
+
+export {uploadOnCloudinary}
