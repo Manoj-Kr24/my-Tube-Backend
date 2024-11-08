@@ -33,8 +33,18 @@ const uploadOnCloudinary = async (localFilePath) =>{
     }
 }
 
+const getCloudinaryPublicId = (url) => {
+    const parts = url.split('/');
+    return parts[parts.length - 1].split('.')[0]; // Get the last segment and remove the extension
+};
+
+
+const deleteFromCloudinary = async (publicId) => {
+    return cloudinary.uploader.destroy(publicId);
+};
 
 
 
 
-export {uploadOnCloudinary}
+
+export {uploadOnCloudinary,getCloudinaryPublicId,deleteFromCloudinary}
